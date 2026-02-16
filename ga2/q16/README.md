@@ -8,8 +8,6 @@ Think of it like this: Your laptop is your house, and the website is a room in y
 
 ---
 
-## 📚 ELI15 Step-by-Step Solution
-
 ### Step 1: Understand What We Need
 
 We need three things:
@@ -218,14 +216,3 @@ When you run `cloudflared tunnel --url http://localhost:3000`, you should see:
 ```
 
 **Your answer:** `https://wonderful-turtle-1234.trycloudflare.com`
-
----
-
-## 🚀 Ready to Start?
-
-1. Make sure you're in the `ga2/q16` folder
-2. Open TWO PowerShell terminals
-3. Follow Steps 4-7 above
-4. Submit your `.trycloudflare.com` URL!
-
-Good luck! 🎉
