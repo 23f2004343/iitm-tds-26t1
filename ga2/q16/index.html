@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q16 - Cloudflared Tunnel Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .info-box p {
+            color: #555;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 20px auto;
+            animation: bounce 1s infinite;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        code {
+            background: #2d3748;
+            color: #48bb78;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✅</div>
+        <h1>Cloudflared Tunnel Active!</h1>
+        <div class="badge">🚀 Q16 - Public Tunnel Demo</div>
+        
+        <div class="info-box">
+            <h3>🌐 Tunnel Information</h3>
+            <p><strong>Status:</strong> Connected and Public</p>
+            <p><strong>Local Server:</strong> <code>localhost:3000</code></p>
+            <p><strong>Protocol:</strong> HTTP</p>
+            <p><strong>Access:</strong> Publicly accessible via Cloudflare</p>
+        </div>
+        
+        <div class="info-box">
+            <h3>📝 Assignment Details</h3>
+            <p>This page demonstrates a successful Cloudflare Tunnel setup for <strong>GA2 Question 16</strong>.</p>
+            <p>The local web server running on port 3000 is now securely exposed to the internet through Cloudflare's network.</p>
+        </div>
+        
+        <div class="info-box">
+            <h3>🎯 What This Demonstrates</h3>
+            <p>✓ Local server running on port 3000</p>
+            <p>✓ Cloudflared tunnel established</p>
+            <p>✓ Public URL ending in <code>.trycloudflare.com</code></p>
+            <p>✓ No firewall configuration needed</p>
+            <p>✓ Secure outbound-only connection</p>
+        </div>
+        
+        <div class="footer">
+            <p>🎓 <strong>IIT Madras - Tools in Data Science</strong></p>
+            <p>January 2026 GA2 Assignment</p>
+            <p id="timestamp"></p>
+        </div>
+    </div>
+    
+    <script>
+        // Display current timestamp
+        document.getElementById('timestamp').textContent = 
+            'Page loaded: ' + new Date().toLocaleString('en-IN', {
+                timeZone: 'Asia/Kolkata',
+                dateStyle: 'full',
+                timeStyle: 'long'
+            });
+        
+        // Add some interactivity
+        setInterval(() => {
+            const icon = document.querySelector('.success-icon');
+            icon.textContent = icon.textContent === '✅' ? '🌐' : '✅';
+        }, 2000);
+    </script>
+</body>
+</html>
