@@ -8,7 +8,7 @@ A FastAPI application that lets users log in with their Google account (like "Si
 
 ---
 
-## 📚 ELI15 Step-by-Step Solution
+## 📚 Step-by-Step Solution
 
 ### Part 1: Understanding OAuth (5 minutes)
 
@@ -299,22 +299,6 @@ pip install -r requirements.txt
 
 ---
 
-## 🎯 Assignment Checklist
-
-- [ ] Google Cloud Project created
-- [ ] OAuth consentscreen configured
-- [ ] OAuth client ID created
-- [ ] Redirect URI set to `http://localhost:8000/auth`
-- [ ] Test user `23f3003225@ds.study.iitm.ac.in` added
-- [ ] `.env` file created with credentials
-- [ ] Dependencies installed
-- [ ] FastAPI server running
-- [ ] Successfully logged in with Google
-- [ ] Retrieved id_token from `/id_token` endpoint
-- [ ] JSON submitted with both id_token and client_id
-
----
-
 ## 📝 Key Endpoints
 
 | Endpoint | Purpose |
@@ -388,8 +372,6 @@ uvicorn main:app --reload
 # 8. Submit as JSON
 ```
 
-Good luck! 🎉
-
 ---
 
 ## 📚 Additional Resources
@@ -417,3 +399,4 @@ A: Yes, if you already have a Google OAuth client set up, just update the redire
 
 **Q: What if I get "This app isn't verified"?**
 A: Click "Advanced" → "Go to [app name] (unsafe)" - it's safe because it's your own app.
+
