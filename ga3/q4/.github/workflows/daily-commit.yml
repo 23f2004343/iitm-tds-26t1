@@ -1,0 +1,30 @@
+name: Daily DevSync Commit
+on:
+  schedule:
+    # Runs at 12:30 UTC every day.
+    # Avoids exactly 00:00 or top-of-the-hour which GitHub Actions may delay due to high load.
+    - cron: '30 12 * * *'
+  # Allows you to run this workflow manually from the Actions tab for testing
+  workflow_dispatch:
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # required to push commits back to the repo
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Track daily activity for 23f3003225@ds.study.iitm.ac.in
+        run: |
+          echo "Daily automated activity logged at $(date)" >> activity_log.txt
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add activity_log.txt
+          git commit -m "Automated daily activity log update" || echo "No changes to commit"
+          git push
