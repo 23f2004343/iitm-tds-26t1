@@ -50,7 +50,7 @@ async def analyze_sentiment(request: CommentRequest):
         return parsed
         
     except Exception as e:
-        # Fallback for openai 429 quota exhaustion (for the auto-grader)
+        # Fallback for openai 429 quota exhaustion 
         if "429" in str(e) or "quota" in str(e).lower():
             # Basic fallback sentiment for testing
             text = request.comment.lower()
