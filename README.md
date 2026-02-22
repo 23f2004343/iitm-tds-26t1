@@ -17,10 +17,15 @@ Emphasis is placed on:
 - `notes/` – Technical documentation and learnings
 
 ## Tech Stack
-- **Development:** VS Code, Git, Docker, GitHub Actions
-- **Backend:** FastAPI, Python, uv
-- **Data:** pandas, SQL, Excel, APIs
-- **Frontend / Deployment:** HTML, JavaScript, Vercel
+- **Development:** VS Code, Git, GitHub, GitHub Codespaces, DevContainers, Docker, uv, pip, curl, HTTPie, ngrok, Bash, PowerShell, wrangler
+## 🛠 Tech Stack
+- **Development**: VS Code, Git, Docker, GitHub Actions, Dependabot, GitHub Pages, GitHub Codespaces, ngrok, localhost.run, Cloudflare Tunnel
+- **Backend**: FastAPI, Flask, Starlette, Uvicorn, Gunicorn, Pydantic, python-multipart, itsdangerous, httpx, requests, python-dotenv, SSE, StreamingResponse
+- **Data / ML**: pandas, numpy, scikit-learn, Pillow, pickle, csv
+- **Databases**: PostgreSQL, Redis, SQLite
+- **Frontend / Deployment**: HTML, CSS, JavaScript, Vercel, Cloudflare Workers, Railway, Render, Google OAuth 2.0, JWT
+- **Testing**: pytest, httpx
+- **AI / LLM**: OpenAI API (gpt-3.5-turbo, gpt-4o-mini, text-embedding-3-small), Google Gemini (gemini-2.0-flash-exp), Ollama (llama3), Playwright, yt-dlp, semantic vector cache
 
 Built under a learn-by-building philosophy.  
 All work is reproducible and version-controlled.
