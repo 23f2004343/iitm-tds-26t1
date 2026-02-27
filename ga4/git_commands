@@ -1,0 +1,83 @@
+You want **one-line commands using `&&`**, separately written for Q1 to Q20.
+
+Here you go:
+
+```bash
+git add q1 && git commit -m "Add q1 solution" && git push origin main
+```
+
+```bash
+git add q2 && git commit -m "Add q2 solution" && git push origin main
+```
+
+```bash
+git add q3 && git commit -m "Add q3 solution" && git push origin main
+```
+
+```bash
+git add q4 && git commit -m "Add q4 solution" && git push origin main
+```
+
+```bash
+git add q5 && git commit -m "Add q5 solution" && git push origin main
+```
+
+```bash
+git add q6 && git commit -m "Add q6 solution" && git push origin main
+```
+
+```bash
+git add q7 && git commit -m "Add q7 solution" && git push origin main
+```
+
+```bash
+git add q8 && git commit -m "Add q8 solution" && git push origin main
+```
+
+```bash
+git add q9 && git commit -m "Add q9 solution" && git push origin main
+```
+
+```bash
+git add q10 && git commit -m "Add q10 solution" && git push origin main
+```
+
+```bash
+git add q11 && git commit -m "Add q11 solution" && git push origin main
+```
+
+```bash
+git add q12 && git commit -m "Add q12 solution" && git push origin main
+```
+
+```bash
+git add q13 && git commit -m "Add q13 solution" && git push origin main
+```
+
+```bash
+git add q14 && git commit -m "Add q14 solution" && git push origin main
+```
+
+```bash
+git add q15 && git commit -m "Add q15 solution" && git push origin main
+```
+
+```bash
+git add q16 && git commit -m "Add q16 solution" && git push origin main
+```
+
+```bash
+git add q17 && git commit -m "Add q17 solution" && git push origin main
+```
+
+```bash
+git add q18 && git commit -m "Add q18 solution" && git push origin main
+```
+
+```bash
+git add q19 && git commit -m "Add q19 solution" && git push origin main
+```
+
+```bash
+git add q20 && git commit -m "Add q20 solution" && git push origin main
+```
