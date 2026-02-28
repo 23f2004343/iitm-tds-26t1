@@ -49,4 +49,4 @@ pip install fastapi uvicorn pandas numpy pillow httpx
 
 ---
 
-<sub>Learn by building. Everything reproducible, everything version-controlled.</sub>
+> Learn by building. Everything reproducible, everything version-controlled.
