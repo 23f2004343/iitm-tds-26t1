@@ -60,8 +60,7 @@ Keep rows where `region == 'Europe'`, `category == 'Onboarding'`, and `parsed_da
 **Script:** [`solve_excel_file1.py`](./solve_excel_file1.py)
 
 ```python
-import re
-import openpyxl
+import re, openpyxl
 from datetime import date, datetime
 
 wb = openpyxl.load_workbook('q-excel-operational-metrics__1_.xlsx')
@@ -69,95 +68,75 @@ ws = wb['Operational Close']
 data = list(ws.iter_rows(values_only=True))[1:]
 
 def canonicalize_region(r):
-    if r is None:
-        return None
+    if r is None: return None
     r_lower = re.sub(r'[\s\-\.&/_]', '', r).lower()
-    if any(x in r_lower for x in ['europe', 'eu', 'europa']):
-        return 'Europe'
-    if any(x in r_lower for x in ['northamerica', 'northam']):
-        return 'North America'
-    if any(x in r_lower for x in ['latinamerica', 'latam', 'latin']):
-        return 'Latin America'
-    if any(x in r_lower for x in ['asiapacific', 'asiapac', 'apac']):
-        return 'Asia Pacific'
-    if any(x in r_lower for x in ['middleeast', 'mea']):
-        return 'Middle East & Africa'
+    if any(x in r_lower for x in ['europe', 'eu', 'europa']): return 'Europe'
+    if any(x in r_lower for x in ['northamerica', 'northam']): return 'North America'
+    if any(x in r_lower for x in ['latinamerica', 'latam', 'latin']): return 'Latin America'
+    if any(x in r_lower for x in ['asiapacific', 'asiapac', 'apac']): return 'Asia Pacific'
+    if any(x in r_lower for x in ['middleeast', 'mea']): return 'Middle East & Africa'
     return r
 
 def parse_date(d):
-    if isinstance(d, (date, datetime)):
-        return d if isinstance(d, date) else d.date()
+    if isinstance(d, (date, datetime)): return d if isinstance(d, date) else d.date()
     d = str(d).strip()
     m = re.match(r'^(\d{4})-(\d{2})-(\d{2})$', d)
-    if m:
-        return date(int(m[1]), int(m[2]), int(m[3]))
+    if m: return date(int(m[1]), int(m[2]), int(m[3]))
     m = re.match(r'^(\d{2})/(\d{2})/(\d{4})$', d)
-    if m:
-        return date(int(m[3]), int(m[2]), int(m[1]))
-    try:
-        return datetime.strptime(d, '%b %d, %Y').date()
-    except:
-        pass
+    if m: return date(int(m[3]), int(m[2]), int(m[1]))
+    try: return datetime.strptime(d, '%b %d, %Y').date()
+    except: pass
     m = re.match(r'^(\d{4})\s*Q([1-4])$', d)
     if m:
         y, q = int(m[1]), int(m[2])
         return {1: date(y,3,31), 2: date(y,6,30), 3: date(y,9,30), 4: date(y,12,31)}[q]
-    return None
 
 def parse_numeric(v):
-    if v is None:
-        return None
+    if v is None: return None
     v = str(v).strip()
-    if 'TBD' in v.upper() or v == '':
-        return None
+    if 'TBD' in v.upper() or v == '': return None
     v = re.sub(r'[USD$,\s]', '', v, flags=re.IGNORECASE)
-    try:
-        return float(v)
-    except:
-        return None
+    try: return float(v)
+    except: return None
 
 cutoff = date(2024, 7, 15)
 total_variance = 0.0
 
 for row in data:
     _, region, closing_period, revenue_raw, expense_raw, ops_notes, _ = row
-    if canonicalize_region(region) != 'Europe':
-        continue
+    if canonicalize_region(region) != 'Europe': continue
     parsed_date = parse_date(closing_period)
-    if parsed_date is None or parsed_date > cutoff:
-        continue
-    if not ops_notes or ops_notes.strip().split('|')[0].strip().lower() != 'onboarding':
-        continue
+    if parsed_date is None or parsed_date > cutoff: continue
+    if not ops_notes or ops_notes.strip().split('|')[0].strip().lower() != 'onboarding': continue
     revenue = parse_numeric(revenue_raw)
-    if revenue is None:
-        continue
+    if revenue is None: continue
     expense = parse_numeric(expense_raw)
-    if expense is None:
-        expense = revenue * 0.37
+    if expense is None: expense = revenue * 0.37
     total_variance += revenue - expense
 
 print(total_variance)
+```
 
-                                                                                                                                                        ---
+---
 
-                                                                                                                                                        ## Verification
+## Verification
 
-                                                                                                                                                        ```bash
-                                                                                                                                                        python solve_excel_file1.py
-                                                                                                                                                        ```
+```bash
+python solve_excel_file1.py
+```
 
-                                                                                                                                                        | Metric | Value |
-                                                                                                                                                        |---|---|
-                                                                                                                                                        | Total rows in sheet | 650 |
-                                                                                                                                                        | Matched records | 16 |
-                                                                                                                                                        | Records with imputed expense (37%) | 1 (RC-00212) |
-                                                                                                                                                        | **Total Variance** | **455037.98** |
+| Metric | Value |
+|---|---|
+| Total rows in sheet | 650 |
+| Matched records | 16 |
+| Records with imputed expense (37%) | 1 (RC-00212) |
+| **Total Variance** | **455037.98** |
 
-                                                                                                                                                        ---
+---
 
-                                                                                                                                                        ## Submission
+## Submission
 
-                                                                                                                                                        **Your Answer:**
-                                                                                                                                                        ```
-                                                                                                                                                        455037.98
-                                                                                                                                                        ```
+**Your Answer:**
+```
+455037.98
+```
