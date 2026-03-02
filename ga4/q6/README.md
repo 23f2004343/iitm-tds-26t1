@@ -85,12 +85,3 @@ print(f"{total_temp_c / count:.2f}")
 ```bash
 python solve.py
 ```
-
----
-
-## Submission
-
-**Your Answer:**
-```
-<paste answer here>
-```

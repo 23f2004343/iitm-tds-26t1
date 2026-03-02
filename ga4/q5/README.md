@@ -65,11 +65,3 @@ Clean a noisy CSV of ERP invoices using **OpenRefine** to fix punctuation differ
    - Click the arrow next to `amount_usd` > **Facet** > **Numeric facet**.
    - In the facet box on the left, it won't sum them automatically, but because there are only a few rows left, you can either manually add the green numbers together on the screen, or export these specific rows to a CSV in the top right and sum them up in Excel to get your final answer.
 
----
-
-## Submission
-
-**Your Answer:**
-```
-40553.84
-```
