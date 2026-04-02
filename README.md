@@ -19,6 +19,7 @@
 | `ga3/` | LLMs · scraping · browser automation |
 | `ga4/` | SQL · dbt · AST analysis · data wrangling |
 | `ga5/` | Git internals · advanced workflows |
+| `project-1/` | [View Project](https://github.com/aloktripathi1/tds-project-1)
 
 ---
 
